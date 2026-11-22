@@ -1,0 +1,37 @@
+[A1-P1] sumber dan tujuan valid (harapan: 0)
+$ ./scripts/validasi.sh /home/aisyah/pso-data/sumber /home/aisyah/pso-data/backup
+2026-11-22 16:32:10 [INFO] [validasi.sh] validasi OK: sumber=/home/aisyah/pso-data/sumber tujuan=/home/aisyah/pso-data/backup
+exit status: 0
+
+[A1-N1] sumber tidak ada (harapan: 2)
+$ ./scripts/validasi.sh /tidak/ada /home/aisyah/pso-data/backup
+2026-11-22 16:32:10 [ERROR] [validasi.sh] sumber tidak ditemukan: /tidak/ada (exit 2)
+exit status: 2
+
+[A1-N2] tanpa parameter (harapan: 2)
+$ ./scripts/validasi.sh
+Pemakaian: ./scripts/validasi.sh <sumber> <tujuan>
+2026-11-22 16:32:10 [ERROR] [validasi.sh] jumlah parameter salah: diterima 0, seharusnya 2 (exit 2)
+exit status: 2
+
+[A1-N3] sumber berupa file (harapan: 2)
+$ ./scripts/validasi.sh /home/aisyah/pso-data/sumber/siakad_dummy/index.html /home/aisyah/pso-data/backup
+2026-11-22 16:32:10 [ERROR] [validasi.sh] sumber bukan direktori: /home/aisyah/pso-data/sumber/siakad_dummy/index.html (exit 2)
+exit status: 2
+
+[A1-N4] sumber kosong (harapan: 2)
+$ ./scripts/validasi.sh /tmp/pso-kosong /home/aisyah/pso-data/backup
+2026-11-22 16:32:10 [ERROR] [validasi.sh] sumber kosong, tidak ada yang bisa di-backup: /tmp/pso-kosong (exit 2)
+exit status: 2
+
+[A1-N5] tujuan tidak ada (harapan: 2)
+$ ./scripts/validasi.sh /home/aisyah/pso-data/sumber /tidak/ada/tujuan
+2026-11-22 16:32:10 [ERROR] [validasi.sh] tujuan tidak ditemukan: /tidak/ada/tujuan (exit 2)
+exit status: 2
+
+[A1-N6] sumber tanpa izin akses (harapan: 2)
+$ ./scripts/validasi.sh /tmp/pso-terkunci /home/aisyah/pso-data/backup
+2026-11-22 16:32:10 [ERROR] [validasi.sh] sumber tidak bisa diakses (permission): /tmp/pso-terkunci (exit 2)
+exit status: 2
+
+(kondisi uji dibersihkan)
