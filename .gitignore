@@ -1,0 +1,16 @@
+# File mesin virtual
+*.vdi
+*.ova
+*.vmdk
+
+# Data backup dan hasil uji
+*.tar.gz
+backup/
+restore_test/
+
+# File sementara dan rahasia
+*.swp
+*.tmp
+.env
+*.pem
+id_rsa*
