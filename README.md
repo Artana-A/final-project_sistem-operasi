@@ -5,7 +5,7 @@ Topik: 5A - Otomasi Backup dan Pemulihan Data
 Kasus:
 Judul: 
 
-##Anggota
+## Anggota
 1. Aisyah Putriarta Lenggu (2510512049)
 2. Arya Ramadhan Kawi (2510512073)
 3. Muhammad Raehansya (2510512127)
@@ -14,20 +14,20 @@ Judul:
 
 Detail skenario dan kontribusi: lihat [docs/pembagian-tugas.md](docs/pembagian-tugas.md)
 
-##Lingkungan
+## Lingkungan
 - OS: Ubuntu 26.04 LTS (Desktop)
 - vCPU: 1
 - RAM: -/+ 1.6 GiB
 - Docker: 
 
-##Instalasi
+## Instalasi
 
-##Menjalankan
+## Menjalankan
 
-##Menguji
+## Menguji
 
-##Aktivitas Docker
+## Aktivitas Docker
 
-##Pemulihan dan Pembersihan Kondisi Uji
+## Pemulihan dan Pembersihan Kondisi Uji
 
 
