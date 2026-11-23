@@ -18,7 +18,7 @@ Detail skenario dan kontribusi: lihat [docs/pembagian-tugas.md](docs/pembagian-t
 - OS: Ubuntu 26.04 LTS (Desktop)
 - vCPU: 1
 - RAM: -/+ 1.6 GiB
-- Docker: 
+- Docker: Docker version 29.1.3 (image: alpine:3.20)
 
 ## Instalasi
 
