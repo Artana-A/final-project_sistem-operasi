@@ -2,8 +2,7 @@
 
 Proyek Akhir Sistem Operasi dan Praktikum Sistem Operasi, S1 Sistem Informasi, UPN Veteran Jakarta.
 Topik: 5A - Otomasi Backup dan Pemulihan Data
-Kasus:
-Judul: 
+Kasus: Pemulihan Web Sistem Informasi Akademik (SIAKAD)
 
 ## Anggota
 1. Aisyah Putriarta Lenggu (2510512049)
