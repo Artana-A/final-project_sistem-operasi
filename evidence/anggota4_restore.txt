@@ -1,0 +1,9 @@
+=== R-01 (+) Restore arsip asli ===
+$ ./scripts/restore.sh /home/pso2510512122/pso-data/backup/backup_siakad_20261123_103307.tar.gz
+2026-11-23 13:51:02 [INFO] [restore.sh] Restore OK: arsip=backup_siakad_20261123_103307.tar.gz tujuan=/home/pso2510512122/pso-data/restore_test
+Exit status: 0
+
+=== R-01b (+) Isi hasil identik dengan sumber ===
+$ diff -r /home/pso2510512122/pso-data/sumber /home/pso2510512122/pso-data/restore_test
+Exit status: 0
+

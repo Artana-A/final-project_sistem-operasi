@@ -14,7 +14,7 @@ LOG_FILE="${LOG_FILE:-$DIR_SKRIP/../output/backup.log}"
 log() {
 	local level="$1"; shift
 	local baris
-	baris="$(date '+%Y-%m-%d %H:%M:S') [$level] [$NAMA] $*"
+	baris="$(date '+%Y-%m-%d %H:%M:%S') [$level] [$NAMA] $*"
 	if [ "$level" = "ERROR" ]; then echo "$baris" >&2; else echo "$baris"; fi
 	mkdir -p "$(dirname "$LOG_FILE")" 2>/dev/null
 	echo "$baris" >> "$LOG_FILE" 2>/dev/null
@@ -34,7 +34,7 @@ if [ "$#" -lt 1 ] || [ "$#" -gt 2 ]; then
 fi
 
 ARSIP="$1"
-TUJUAN="${2:-HOME/pso-data/restore_test}"
+TUJUAN="${2:-$HOME/pso-data/restore_test}"
 
 [ -n "$ARSIP" ] || gagal 2 "parameter arsip kosong"
 [ -e "$ARSIP" ] || gagal 2 "arsip tidak ditemukan: $ARSIP"
