@@ -1,0 +1,54 @@
+[A5-P1] lock bebas, proses jalan normal (harapan: 0)
+$ /tmp/pso-backup-tiruan.sh 1
+2026-11-23 14:52:31 [INFO] [backup-tiruan] lock diperoleh: /tmp/pso-uji.lock
+2026-11-23 14:52:32 [INFO] [backup-tiruan] selesai
+exit status: 0
+
+[A5-N1] proses kedua saat lock aktif (harapan: 6)
+$ /tmp/pso-backup-tiruan.sh 1
+2026-11-23 14:52:33 [ERROR] [backup-tiruan] lock aktif, proses backup lain sedang berjalan (exit 6)
+exit status: 6
+
+[A5-P2] lock lepas setelah proses pertama selesai (harapan: 0)
+$ /tmp/pso-backup-tiruan.sh 1
+2026-11-23 14:52:37 [INFO] [backup-tiruan] lock diperoleh: /tmp/pso-uji.lock
+2026-11-23 14:52:38 [INFO] [backup-tiruan] selesai
+exit status: 0
+
+[A5-P3] laporan BERHASIL dicatat (harapan: 0)
+$ ./scripts/laporan.sh BERHASIL 0 /home/shabrina/pso-data/backup/tidak-ada.tar.gz uji
+2026-11-23 14:52:38 [INFO] [laporan.sh] laporan dicatat: BERHASIL exit=0 arsip=tidak-ada.tar.gz (tidak ditemukan)
+exit status: 0
+
+[A5-N2] laporan dengan status ngawur (harapan: 2)
+$ ./scripts/laporan.sh MUNGKIN 0
+2026-11-23 14:52:38 [ERROR] [laporan.sh] status harus BERHASIL atau GAGAL, bukan 'MUNGKIN' (exit 2)
+exit status: 2
+
+[A5-N3] laporan ke lokasi tidak bisa ditulis (harapan: 3)
+$ ./scripts/laporan.sh GAGAL 3
+2026-11-23 14:52:38 [ERROR] [laporan.sh] laporan tidak dapat ditulis: /proc/tidak-bisa/laporan.txt (exit 3)
+exit status: 3
+
+[A5-P4/N4] Docker: baca OK, tulis read-only ditolak (harapan: 0)
+$ ./scripts/docker_laporan.sh
+2026-11-23 14:52:38 [INFO] [docker_laporan.sh] [BACA] container membaca laporan via mount read-only
+Unable to find image 'alpine:3.20' locally
+3.20: Pulling from library/alpine
+25f1d6b1951a: Pulling fs layer
+d4050d56ebf2: Download complete
+3a030ca3f633: Download complete
+25f1d6b1951a: Download complete
+25f1d6b1951a: Pull complete
+Digest: sha256:d9e853e87e55526f6b2917df91a2115c36dd7c696a35be12163d44e6e2a4b6bc
+Status: Downloaded newer image for alpine:3.20
+# Laporan Backup SIAKAD Dummy: waktu | status | exit | arsip | ukuran | keterangan
+2026-11-23 14:52:38 | BERHASIL | exit=0 | tidak-ada.tar.gz (tidak ditemukan) | - | uji
+2026-11-23 14:53:04 [INFO] [docker_laporan.sh] [TULIS] container mencoba menulis ke mount read-only (harus ditolak)
+pesan container: sh: can't create /laporan/laporan.txt: Read-only file system
+2026-11-23 14:53:05 [INFO] [docker_laporan.sh] penulisan DITOLAK (exit container=1), isi laporan.txt tidak berubah
+exit status: 0
+
+--- isi laporan.txt ---
+# Laporan Backup SIAKAD Dummy: waktu | status | exit | arsip | ukuran | keterangan
+2026-11-23 14:52:38 | BERHASIL | exit=0 | tidak-ada.tar.gz (tidak ditemukan) | - | uji
