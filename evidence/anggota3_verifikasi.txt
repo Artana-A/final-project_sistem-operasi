@@ -1,0 +1,8 @@
+[A3-P1] Verifikasi arsip asli (harapan: exit 0)
+2026-11-23 23:25:08 [INFO] [verifikasi.sh] Integritas valid (checksum cocok): backup_siakad_20261123_200000.tar.gz
+exit status: 0
+
+[A3-N1] Verifikasi arsip yang diubah (harapan: exit 4)
+exit status: 4
+
+(kondisi uji dibersihkan)
