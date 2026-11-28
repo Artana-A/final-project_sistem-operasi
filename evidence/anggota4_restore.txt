@@ -1,0 +1,41 @@
+=== R-01 (+) Restore arsip asli ===
+$ ./scripts/restore.sh /home/pso2510512122/pso-data/backup/backup_siakad_20261123_103307.tar.gz
+2026-11-23 13:51:02 [INFO] [restore.sh] Restore OK: arsip=backup_siakad_20261123_103307.tar.gz tujuan=/home/pso2510512122/pso-data/restore_test
+Exit status: 0
+
+=== R-01b (+) Isi hasil identik dengan sumber ===
+$ diff -r /home/pso2510512122/pso-data/sumber /home/pso2510512122/pso-data/restore_test
+Exit status: 0
+
+=== R-02 (-) Arsip rusak ditolak ===
+$ ./scripts/restore.sh /home/pso2510512122/pso-data/backup_rusak/backup_siakad_20261123_103307.tar.gz
+2026-11-23 14:10:20 [ERROR] [restore.sh] Checksum tidak cocok, arsip rusak/berubah, restore ditolak: backup_siakad_20261123_103307.tar.gz (exit 5)
+Exit status: 5
+
+=== R-02b (-) restore_test tetap kosong ===
+$ ls -A /home/pso2510512122/pso-data/restore_test
+Exit status: 0
+
+=== R-03 (-) Arsip tidak ditemukan ===
+$ ./scripts/restore.sh arsip_ngawur.tar.gz
+2026-11-23 14:18:13 [ERROR] [restore.sh] arsip tidak ditemukan: arsip_ngawur.tar.gz (exit 2)
+Exit status: 2
+
+=== R-04 (-) Parameter kosong ===
+$ ./scripts/restore.sh
+Pemakaian: ./scripts/restore.sh <file_arsip.tar.gz> [folder_tujuan]
+2026-11-23 14:20:17 [ERROR] [restore.sh] Jumlah parameter salah: diterima 0, seharusnya 1 atau 2 (exit 2)
+Exit status: 2
+
+=== R-05 (-) Tujuan tidak dapat ditulis ===
+$ ./scripts/restore.sh /home/pso2510512122/pso-data/backup/backup_siakad_20261123_103307.tar.gz /home/pso2510512122/tujuan_ro
+2026-11-23 14:23:33 [ERROR] [restore.sh] Tujuan tidak dapat ditulis: /home/pso2510512122/tujuan_ro (exit 3)
+Exit status: 3
+
+=== Isi output/backup.log ===
+2026-11-23 13:39:24 [INFO] [restore.sh] Restore OK: arsip=backup_siakad_20261123_103307.tar.gz tujuan=/home/pso2510512122/pso-data/restore_test
+2026-11-23 13:51:02 [INFO] [restore.sh] Restore OK: arsip=backup_siakad_20261123_103307.tar.gz tujuan=/home/pso2510512122/pso-data/restore_test
+2026-11-23 14:10:20 [ERROR] [restore.sh] Checksum tidak cocok, arsip rusak/berubah, restore ditolak: backup_siakad_20261123_103307.tar.gz (exit 5)
+2026-11-23 14:18:13 [ERROR] [restore.sh] arsip tidak ditemukan: arsip_ngawur.tar.gz (exit 2)
+2026-11-23 14:20:17 [ERROR] [restore.sh] Jumlah parameter salah: diterima 0, seharusnya 1 atau 2 (exit 2)
+2026-11-23 14:23:33 [ERROR] [restore.sh] Tujuan tidak dapat ditulis: /home/pso2510512122/tujuan_ro (exit 3)
