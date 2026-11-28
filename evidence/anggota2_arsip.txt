@@ -1,0 +1,12 @@
+=== T-A2-P1 (+) Pembuatan arsip ===
+2026-11-23 03:15:%$ [INFO] [backup.sh] Arsip berhasil dibuat: /home/arya/pso-data/backup/backup_siakad_20261123_031516.tar.gz (4.0K)
+/home/arya/pso-data/backup/backup_siakad_20261123_031516.tar.gz
+Exit status: 0
+=== T-A2-N1 (-) Tujuan read-only ===
+2026-11-23 03:15:16 [ERROR] [backup.sh] tujuan tidak dapat ditulis: /home/arya/pso-data/backup (exit 3)
+Exit status:3
+=== Isi output/backup.log ===
+2026-11-23 01:04:%$ [INFO] [backup.sh] Arsip berhasil dibuat: /home/arya/pso-data/backup/backup_siakad_20261123_010455.tar.gz (4.0K)
+2026-11-23 02:17:%$ [INFO] [backup.sh] Arsip berhasil dibuat: /home/arya/pso-data/backup/backup_siakad_20261123_021717.tar.gz (4.0K)
+2026-11-23 03:15:%$ [INFO] [backup.sh] Arsip berhasil dibuat: /home/arya/pso-data/backup/backup_siakad_20261123_031516.tar.gz (4.0K)
+2026-11-23 03:16:%$ [ERROR] [backup.sh] tujuan tidak dapat ditulis: /home/arya/pso-data/backup (exit 3)
